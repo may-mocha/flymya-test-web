@@ -127,6 +127,9 @@ export const Home = () => {
     </ul>
   ]
 
+  const [citizen,setCitizen] = useState(true)
+  const [dosmestic,setDosmetic] = useState(true)
+
   return (
     <StyledHome>
       <ContainerCom>
@@ -171,13 +174,13 @@ export const Home = () => {
               <div className="wrapper">
                 <div className='select-con'>
                   <div className="type">
-                    <Input type='radio' label='Domestic' defaultChecked />
-                    <Input type='radio' label='International' tag="New!"/>
+                    <Input type='radio' label='Domestic' checked={dosmestic? true: false} onClick={()=>setDosmetic(true)} />
+                    <Input type='radio' label='International' tag="New!" checked={!dosmestic? true: false} onClick={()=>setDosmetic(false)}/>
                   </div>
                   <div className="citizen">
                     <Text size='sm' color='gray2'>Myanmar Citizens</Text>
-                    <Input type='radio' label='Yes' defaultChecked />
-                    <Input type='radio' label='No'/>
+                    <Input type='radio' label='Yes' checked={citizen? true: false} onClick={()=>setCitizen(true)}/>
+                    <Input type='radio' label='No' checked={!citizen? true: false} onClick={()=>setCitizen(false)}/>
                   </div>
                   <div className="trip-type">
                     <Text size='sm' color='gray2'>Trip Type</Text>
@@ -226,8 +229,8 @@ export const Home = () => {
                   <div className="citizen">
                     <Text size='sm'>Myanmar Citizens</Text>
                     <div className="wrap">
-                      <Input type='radio' label='Yes' defaultChecked />
-                      <Input type='radio' label='No'/>
+                      <Input type='radio' label='Yes' checked={citizen? true: false} onClick={()=>setCitizen(true)} />
+                      <Input type='radio' label='No' checked={!citizen? true: false} onClick={()=>setCitizen(false)}/>
                     </div>
                   </div>
               </div>
